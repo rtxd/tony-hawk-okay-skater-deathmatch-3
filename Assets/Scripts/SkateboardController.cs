@@ -6,10 +6,10 @@ public class SkateboardController : MonoBehaviour {
     public List<AxleInfo> axleInfos; // the information about each individual axle
     public float maxMotorTorque; // maximum torque the motor can apply to wheel
     public float maxSteeringAngle; // maximum steer angle the wheel can have
-    Transform tform;
+    //Transform tform;
 
     public void Start() {
-        tform = transform;
+        //tform = transform;
     }
 
     public void FixedUpdate()
@@ -29,7 +29,7 @@ public class SkateboardController : MonoBehaviour {
             }
         }
 
-        tform.eulerAngles = new Vector3 (tform.eulerAngles.x * -1, tform.eulerAngles.y * -1, tform.eulerAngles.z * -1);
+        // tform.eulerAngles = new Vector3 (tform.eulerAngles.x * -1, tform.eulerAngles.y * -1, tform.eulerAngles.z * -1);
     }
 
 
