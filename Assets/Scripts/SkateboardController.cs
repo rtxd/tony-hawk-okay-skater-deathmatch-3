@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
     
 public class SkateboardController : MonoBehaviour {
     public List<AxleInfo> axleInfos; // the information about each individual axle
     public float maxMotorTorque; // maximum torque the motor can apply to wheel
     public float maxSteeringAngle; // maximum steer angle the wheel can have
-    //Transform tform;
+    public Vector3 spawnPoint = new Vector3(0,1,0);
+    public bool isTouchingFloor;
 
     public void Start() {
-        //tform = transform;
+        reset();
     }
 
     public void FixedUpdate()
@@ -30,6 +32,23 @@ public class SkateboardController : MonoBehaviour {
         }
 
         // tform.eulerAngles = new Vector3 (tform.eulerAngles.x * -1, tform.eulerAngles.y * -1, tform.eulerAngles.z * -1);
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            reset();
+        }
+    }
+
+    void onTriggerEnter(Collider col)
+    {
+        Console.WriteLine("Colliding");
+        isTouchingFloor = (col.GetComponent<Collider>().name == "Placeholder map"); 
+    }
+
+    void reset()
+    {
+        transform.position = spawnPoint;
+        transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
 
