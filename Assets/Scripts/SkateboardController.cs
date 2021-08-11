@@ -8,6 +8,7 @@ public class SkateboardController : MonoBehaviour {
     public float maxMotorTorque; // maximum torque the motor can apply to wheel
     public float maxSteeringAngle; // maximum steer angle the wheel can have
     public Vector3 spawnPoint = new Vector3(0,1,0);
+    public float rotationSpeed;
     public bool isTouchingFloor;
 
     public void Start() {
@@ -31,14 +32,36 @@ public class SkateboardController : MonoBehaviour {
             }
         }
 
-        if(transform.eulerAngles.z >= 6)
-        {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 6);
-        }
+        //if(transform.eulerAngles.z >= 6)
+        //{
+        //    transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 6);
+        //}
 
         if(Input.GetKey(KeyCode.R))
         {
             reset();
+        }
+
+        if (!isTouchingFloor)
+        {
+            
+        }
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if(col.tag == "floor")
+        {
+            Debug.Log("touching!");
+            isTouchingFloor = true;
+        }
+    }
+
+    void OnTriggerExit(Collider col)
+    {
+        if(col.tag == "floor")
+        {
+            isTouchingFloor = false;
         }
     }
 

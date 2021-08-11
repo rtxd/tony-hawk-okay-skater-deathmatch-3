@@ -16,7 +16,6 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Let's Go!");
         transform.position += transform.forward * Time.deltaTime * speed;
 
     }
