@@ -31,7 +31,10 @@ public class SkateboardController : MonoBehaviour {
             }
         }
 
-        // tform.eulerAngles = new Vector3 (tform.eulerAngles.x * -1, tform.eulerAngles.y * -1, tform.eulerAngles.z * -1);
+        if(transform.eulerAngles.z >= 6)
+        {
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 6);
+        }
 
         if(Input.GetKey(KeyCode.R))
         {

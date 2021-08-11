@@ -6,6 +6,8 @@ using System;
 public class MachineGunController : MonoBehaviour
 {
     public GameObject bullet;
+    public Transform spawnTransform;
+
     void Start()
     {
         
@@ -22,6 +24,6 @@ public class MachineGunController : MonoBehaviour
 
     void fire()
     {
-        Instantiate(bullet, transform.position, Quaternion.identity);
+        Instantiate(bullet, transform.position, spawnTransform.rotation);
     }
 }
