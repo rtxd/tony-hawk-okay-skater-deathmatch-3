@@ -33,16 +33,10 @@ public class SkateboardController : MonoBehaviour {
 
         // tform.eulerAngles = new Vector3 (tform.eulerAngles.x * -1, tform.eulerAngles.y * -1, tform.eulerAngles.z * -1);
 
-        if(Input.GetKeyDown(KeyCode.R))
+        if(Input.GetKey(KeyCode.R))
         {
             reset();
         }
-    }
-
-    void onTriggerEnter(Collider col)
-    {
-        Console.WriteLine("Colliding");
-        isTouchingFloor = (col.GetComponent<Collider>().name == "Placeholder map"); 
     }
 
     void reset()
